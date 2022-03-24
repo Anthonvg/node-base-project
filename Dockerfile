@@ -1,0 +1,15 @@
+FROM node:12.8.0
+
+ENV PORT 8080
+ENV TOKEN_SECRET_JWT SUPER-SECRET-123
+ENV SECRET_USER SUPER-SECRET-USER-123
+
+WORKDIR /usr/src/app
+COPY package*.json ./
+
+RUN npm install
+COPY . .
+
+EXPOSE 8080
+
+CMD [ "npm", "start" ]
